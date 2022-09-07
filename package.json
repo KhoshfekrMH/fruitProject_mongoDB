@@ -1,0 +1,22 @@
+{
+  "name": "fruitproject_mongodb",
+  "version": "1.0.0",
+  "description": "mongoDB native driver project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhoshfekrMH/fruitProject_mongoDB.git"
+  },
+  "author": "Khoshfekr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhoshfekrMH/fruitProject_mongoDB/issues"
+  },
+  "homepage": "https://github.com/KhoshfekrMH/fruitProject_mongoDB#readme",
+  "dependencies": {
+    "mongodb": "^4.9.1"
+  }
+}
