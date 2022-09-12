@@ -4,11 +4,12 @@ mongoose.connect('mongodb://localhost/my_database');
 
 const fruitSchema = new mongoose.Schema ({
     name: {
-        required: true
+        type: String,
+        required: [true, "please check your data, no name specified!"]
     },
 
     rating: {
-        Number,
+        type: Number,
         min: 1,
         max: 10
     },
