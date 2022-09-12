@@ -21,22 +21,21 @@ const Fruit = mongoose.model("Fruit", fruitSchema);
 
 const Kiwi = new Fruit ({
     name: "Kiwi",
-    score: 10,
+    rating: 10,
     review: "Nunc aliquam aliquam morbi interdum nec hendrerit quisque quam felis."
 });
 
 const orange = new Fruit ({
     name: "Orange",
-    score: 4,
+    rating: 4,
     review: "Consectetur varius arcu sed eu elementum sit lorem ut eu."
 });
 
 const banana = new Fruit ({
     name: "Banana",
-    score: 4,
+    rating: 4,
     review: "Tortor massa quam lacus congue nec lorem condimentum mi tincidunt."
 });
-
 
 /*Fruit.insertMany([Kiwi, orange, banana], function(err) {
     if(err){
@@ -66,4 +65,20 @@ Fruit.find(function (err, fruits) {
             console.log(fruit.name)
         });
     }
+});
+
+/*Fruit.deleteMany({rating: undefined} , function(err){
+   if(err){
+       console.log(err);
+   } else {
+       console.log("Successfully deleted");
+   }
+});*/
+
+Fruit.updateOne({_id: "631e01bb4c5d5191d3a45d70"}, {review: "Fusce amet commodo massa consectetur erat sollicitudin port."}, function (err) {
+   if(err) {
+       console.log(err);
+   } else {
+       console.log("Successfully updated");
+   }
 });
