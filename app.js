@@ -3,8 +3,16 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/my_database');
 
 const fruitSchema = new mongoose.Schema ({
-    name: String,
-    rating: Number,
+    name: {
+        required: true
+    },
+
+    rating: {
+        Number,
+        min: 1,
+        max: 10
+    },
+
     review: String
 });
 
@@ -28,13 +36,14 @@ const banana = new Fruit ({
     review: "Tortor massa quam lacus congue nec lorem condimentum mi tincidunt."
 });
 
-Fruit.insertMany([Kiwi, orange, banana], function(err) {
+
+/*Fruit.insertMany([Kiwi, orange, banana], function(err) {
     if(err){
         console.log(err);
     } else {
         console.log("Successfully saved all the fruits in my_database")
     }
-});
+});*/
 
 const humanSchema = new mongoose.Schema ({
     name: String,
@@ -42,3 +51,18 @@ const humanSchema = new mongoose.Schema ({
 });
 
 const Human = mongoose.model("Human", humanSchema);
+
+
+Fruit.find(function (err, fruits) {
+    if(err){
+        console.log(err);
+    } else {
+
+        mongoose.connection.close();
+
+
+        fruits.forEach(function (fruit) {
+            console.log(fruit.name)
+        });
+    }
+});
