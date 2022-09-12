@@ -45,14 +45,6 @@ const banana = new Fruit ({
     }
 });*/
 
-const humanSchema = new mongoose.Schema ({
-    name: String,
-    age: Number
-});
-
-const Human = mongoose.model("Human", humanSchema);
-
-
 Fruit.find(function (err, fruits) {
     if(err){
         console.log(err);
@@ -75,10 +67,35 @@ Fruit.find(function (err, fruits) {
    }
 });*/
 
-Fruit.updateOne({_id: "631e01bb4c5d5191d3a45d70"}, {review: "Fusce amet commodo massa consectetur erat sollicitudin port."}, function (err) {
+/*Fruit.updateOne({_id: "631e01bb4c5d5191d3a45d70"}, {review: "Fusce amet commodo massa consectetur erat sollicitudin port."}, function (err) {
    if(err) {
        console.log(err);
    } else {
        console.log("Successfully updated");
+   }
+});*/
+
+const humanSchema = new mongoose.Schema ({
+    name: String,
+    age: Number,
+    favoriteFruit: fruitSchema
+});
+
+const Human = mongoose.model("Human", humanSchema);
+
+const human2 = new Human({
+    name: "Amy",
+    age: 23,
+    favoriteFruit: Kiwi
+});
+
+/*
+human2.save();*/
+
+Human.updateOne({_id: "631e03399193e01de0915bb6"}, {favoriteFruit: orange}, function (err) {
+   if(err) {
+       console.log(err);
+   } else {
+       console.log("successfully updated");
    }
 });
